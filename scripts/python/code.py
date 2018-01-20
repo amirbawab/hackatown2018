@@ -133,6 +133,13 @@ with detection_graph.as_default():
       (boxes, scores, classes, num) = sess.run(
           [detection_boxes, detection_scores, detection_classes, num_detections],
           feed_dict={image_tensor: image_np_expanded})
+      
+      # Extract data
+      total_items = len(classes[0])
+      for index in range(0, total_items):
+          if scores[0][index] >= 0.6:
+              print "{} {}".format(category_index[classes[0][index]]['name'], scores[0][index])
+
       # Visualization of the results of a detection.
       vis_util.visualize_boxes_and_labels_on_image_array(
           image_np,
