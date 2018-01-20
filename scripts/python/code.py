@@ -28,7 +28,9 @@ else:
 #%matplotlib inline
 
 # This is needed since the notebook is stored in the object_detection folder.
-sys.path.append("..")
+sys.path.append("../../models/research/")
+sys.path.append("../../models/research/slim/")
+sys.path.append("../../models/research/object_detection/")
 
 ###########################
 # OBJECT DETECTION IMPORTS
@@ -50,7 +52,7 @@ DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
 PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
+PATH_TO_LABELS = os.path.join('../../models/research/object_detection/data', 'mscoco_label_map.pbtxt')
 
 NUM_CLASSES = 90
 
@@ -103,7 +105,7 @@ def load_image_into_numpy_array(image):
 # image1.jpg
 # image2.jpg
 # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-PATH_TO_TEST_IMAGES_DIR = 'test_images'
+PATH_TO_TEST_IMAGES_DIR = '../../models/research/object_detection/test_images/'
 TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
 
 # Size, in inches, of the output images.
