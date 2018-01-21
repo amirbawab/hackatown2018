@@ -42,10 +42,22 @@ namespace MapInteractionSample
             InitializeComponent();
             //ctl.MouseEnter += MePlayer_OnMouseEnter;
             //ctl.MouseLeave += MePlayer_OnMouseLeave;
-            mePlayer.Source =  new Uri("http://6oo.org/video/flag.png?tmp=" + StaticClass.CountStatic.ToString());
-            //mePlayer.Source = new Uri("http://6oo.org/video/flag.png." + StaticClass.CountStatic.ToString());
-            mePlayer.Play();
-            Texts.Text = StaticClass.CurrentString;
+            //OK
+            //mePlayer.Source =  new Uri("http://6oo.org/video/flag.png?tmp=" + StaticClass.CountStatic.ToString());
+
+            //TEST
+            try
+            {
+                mePlayer.Source =
+                    new Uri("http://6oo.org/video/img" + (StaticClass.CountStatic % 10).ToString() + ".jpg");
+                //mePlayer.Source = new Uri("http://6oo.org/video/flag.png." + StaticClass.CountStatic.ToString());
+                mePlayer.Play();
+                Texts.Text = StaticClass.CurrentString;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         #endregion

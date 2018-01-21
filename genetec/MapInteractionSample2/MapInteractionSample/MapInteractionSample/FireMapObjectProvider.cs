@@ -58,12 +58,22 @@ namespace MapInteractionSample
             thread.Start();
             m_filters = new ObservableCollection<Filters>()
             {
-                new Filters("coffee"),
-                new Filters("dog"),
-                new Filters("food"),
                 new Filters("backpack"),
-                new Filters("person")
+                new Filters("bench"),
+                new Filters("bottle"),
+                new Filters("chair"),
+                new Filters("cup"),
+                new Filters("dining table"),
+                new Filters("keyboard"),
+                new Filters("mouse"),
+                new Filters("orange"),
+                new Filters("person"),
+                new Filters("potted plant"),
+                new Filters("sandwhich"),
+                new Filters("sink"),
+                new Filters("tv")
             };
+            m_filters.OrderBy(f => f.CheckBoxName);
             m_fires.CollectionChanged += OnFiresCollectionChanged;
         }
 
@@ -141,7 +151,11 @@ namespace MapInteractionSample
                         try
                         {
                             WebClient wc = new WebClient();
-                            somestring = wc.DownloadString("http://6oo.org/video/text.txt");
+                            //OK
+                            //somestring = wc.DownloadString("http://6oo.org/video/text.txt");
+
+                            //TEST
+                            somestring = wc.DownloadString("http://6oo.org/video/img"+(StaticClass.CountStatic%10).ToString()+".txt");
                             if (somestring != null && somestring.Length > 0)
                             {
                                 String[] test = somestring.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
@@ -175,7 +189,7 @@ namespace MapInteractionSample
                         catch (WebException we)
                         {
                             // add some kind of error processing
-                            MessageBox.Show(we.ToString());
+                            //MessageBox.Show(we.ToString());
                         }
 
                     }));
