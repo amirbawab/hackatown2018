@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,34 +21,23 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static readonly ObservableCollection<Filters> m_fires = new ObservableCollection<Filters>();
+        private static ObservableCollection<Filters> m_filters = new ObservableCollection<Filters>();
         public MainWindow()
         {
             InitializeComponent();
-            this.Loaded += Window_Loaded;
-        }
+            webBrowser.Navigate("https://www.youtube.com/watch?v=4pFQWnQsGwk");
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Loaded");
-            mePlayer = new MediaElement();
-          
+            m_filters = new System.Collections.ObjectModel.ObservableCollection<Filters>()
             {
-                try
-                {
-                    //Thread.Sleep(1000);
-                    //mePlayer.Source = new Uri("http://6oo.org/video/flag.png");
-                    //mePlayer.ScrubbingEnabled = true;
-                    //mePlayer.Play();
-                }
-                catch (Exception exp)
-                {
-                    Console.WriteLine(exp);
-                }
-
-            }
-    }
-
-
-
+                new Filters("Cat"),
+                new Filters("Dog"),
+                new Filters("T-Shirt")
+            };
+            // Get the fires from the provider to populate the list on the right
+            m_filtersList.ItemsSource = m_filters;
+            m_countsList.ItemsSource = m_filters;
+        }
     }
 }
+//        <MediaElement LoadedBehavior="Play" Source="http://6oo.org/video/Wildlife%20Windows%207%20Sample%20Video-a3ICNMQW7Ok.mp4"  Name="mePlayer2" />

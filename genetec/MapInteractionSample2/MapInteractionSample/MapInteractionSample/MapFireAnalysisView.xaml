@@ -68,9 +68,19 @@
                     </ListBox.ContextMenu>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="Test" FontWeight="Bold" />
-                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100">
+
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="100">
+
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding CheckBoxName}" FontWeight="Bold" />
+                                <TextBlock Grid.Column="1" Text="{Binding Counts}" FontWeight="Bold" />
+
+                            </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

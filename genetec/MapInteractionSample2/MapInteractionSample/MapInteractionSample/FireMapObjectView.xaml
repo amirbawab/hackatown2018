@@ -14,7 +14,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-        <MediaElement Source="http://ott.pakwatantv.com:5000/live/geonews0011/playlist.m3u8" LoadedBehavior="Play" Name="mePlayer" />
+        <MediaElement Source="http://6oo.org/video/video.mp4" LoadedBehavior="Play" Name="mePlayer" />
     </Grid>
  
 </maps:MapObjectView>
