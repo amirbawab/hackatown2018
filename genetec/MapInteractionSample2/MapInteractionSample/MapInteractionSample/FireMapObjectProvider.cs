@@ -58,9 +58,11 @@ namespace MapInteractionSample
             thread.Start();
             m_filters = new ObservableCollection<Filters>()
             {
-                new Filters("cow"),
+                new Filters("coffee"),
                 new Filters("dog"),
-                new Filters("human")
+                new Filters("food"),
+                new Filters("backpack"),
+                new Filters("person")
             };
             m_fires.CollectionChanged += OnFiresCollectionChanged;
         }
@@ -122,7 +124,7 @@ namespace MapInteractionSample
 
                     var fire = new FireMapObject(lat, lon)
                     {
-                        Description = "Fire!",
+                        Description = "Alarm Triggered!",
                         Date = DateTime.Now
                     };
 

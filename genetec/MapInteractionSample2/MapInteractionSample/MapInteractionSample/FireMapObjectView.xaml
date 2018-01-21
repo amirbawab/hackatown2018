@@ -31,6 +31,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
     </maps:MapObjectView.Resources>
     <StackPanel  Name="StackPanelKey" Style="{StaticResource ScaleStyleS}">
         <MediaElement LoadedBehavior="Manual" Name="mePlayer"  Style="{StaticResource ScaleStyle}"/>
