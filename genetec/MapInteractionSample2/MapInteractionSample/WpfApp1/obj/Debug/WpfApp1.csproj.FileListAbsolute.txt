@@ -1,0 +1,15 @@
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\bin\Debug\WpfApp1.exe.config
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\bin\Debug\WpfApp1.exe
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\bin\Debug\WpfApp1.pdb
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.csprojResolveAssemblyReference.cache
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\MainWindow.g.cs
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\App.g.cs
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\MainWindow.baml
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.g.resources
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.Cache
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.exe
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\WpfApp1\obj\Debug\WpfApp1.pdb
