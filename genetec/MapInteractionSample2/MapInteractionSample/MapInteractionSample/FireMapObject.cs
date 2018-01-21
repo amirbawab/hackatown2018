@@ -29,7 +29,7 @@ namespace MapInteractionSample
         #region Properties
 
         public DateTime Date { get; set; }
-
+        public int Count { get; set; }
         public string Description { get; set; }
 
         public override bool IsClusterable => false;

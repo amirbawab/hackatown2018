@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
 
 // ==========================================================================
 // Copyright (C) 2017 by Genetec, Inc.
@@ -18,6 +22,7 @@ namespace MapInteractionSample
 
         public static readonly DependencyProperty IsFireSelectedProperty = DependencyProperty.Register(
                     "IsFireSelected", typeof(bool), typeof(FireMapObjectView), new PropertyMetadata(default(bool)));
+        
 
         #endregion
 
@@ -28,7 +33,6 @@ namespace MapInteractionSample
             get { return (bool)GetValue(IsFireSelectedProperty); }
             set { SetValue(IsFireSelectedProperty, value); }
         }
-
         #endregion
 
         #region Constructors
@@ -36,6 +40,24 @@ namespace MapInteractionSample
         public FireMapObjectView()
         {
             InitializeComponent();
+            //ctl.MouseEnter += MePlayer_OnMouseEnter;
+            //ctl.MouseLeave += MePlayer_OnMouseLeave;
+            //OK
+            //mePlayer.Source =  new Uri("http://6oo.org/video/flag.png?tmp=" + StaticClass.CountStatic.ToString());
+
+            //TEST
+            try
+            {
+                mePlayer.Source =
+                    new Uri("http://6oo.org/video/img" + (StaticClass.CountStatic % 10).ToString() + ".jpg");
+                //mePlayer.Source = new Uri("http://6oo.org/video/flag.png." + StaticClass.CountStatic.ToString());
+                mePlayer.Play();
+                Texts.Text = StaticClass.CurrentString;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         #endregion
@@ -48,6 +70,32 @@ namespace MapInteractionSample
         }
 
         #endregion
+
+        //private void MePlayer_OnMouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    ctl.Width = ctl.Width / 2;
+        //    ctl.Height = ctl.Height / 2;
+        //    StackPanelKey.Width = StackPanelKey.Width / 2;
+        //    StackPanelKey.Height = StackPanelKey.Height / 2;
+        //    mePlayer.Width = mePlayer.Width / 2;
+        //    mePlayer.Height = mePlayer.Height / 2;
+        //    Texts.Foreground = Brushes.White;
+        //}
+
+        //private void MePlayer_OnMouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    ctl.Width = ctl.Width * 2;
+        //    ctl.Height = ctl.Height * 2;
+        //    StackPanelKey.Width = StackPanelKey.Width * 2;
+        //    StackPanelKey.Height = StackPanelKey.Height * 2;
+        //    mePlayer.Width = mePlayer.Width * 2;
+        //    mePlayer.Height = mePlayer.Height * 2;
+        //    Texts.Foreground = Brushes.Red;
+        //}
+        public class A : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+        }
     }
 }
 

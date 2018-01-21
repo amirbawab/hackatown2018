@@ -3,6 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:maps="clr-namespace:Genetec.Sdk.Controls.Maps;assembly=Genetec.Sdk.Controls"
              x:Name="ctl">
+    <UserControl.Resources>
+        <Storyboard x:Key="blinkAnimation" Duration="0:0:5" >
+            <ColorAnimationUsingKeyFrames 
+                                          Storyboard.TargetName="ForegroundProperty"
+                                          AutoReverse="True">
+                <ColorAnimationUsingKeyFrames.KeyFrames>
+                    <DiscreteColorKeyFrame KeyTime="0:0:0" Value="White"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:1" Value="Red"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:2" Value="White"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:3" Value="Red"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:4" Value="White"/>
+                </ColorAnimationUsingKeyFrames.KeyFrames>
+            </ColorAnimationUsingKeyFrames>
+
+            <ColorAnimationUsingKeyFrames 
+                                          Storyboard.TargetName="ForegroundProperty"
+                                          AutoReverse="True">
+                <ColorAnimationUsingKeyFrames.KeyFrames>
+                    <DiscreteColorKeyFrame KeyTime="0:0:0" Value="Red"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:1" Value="White"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:2" Value="Red"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:3" Value="White"/>
+                    <DiscreteColorKeyFrame KeyTime="0:0:4" Value="Red"/>
+                </ColorAnimationUsingKeyFrames.KeyFrames>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -68,9 +95,21 @@
                     </ListBox.ContextMenu>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="Test" FontWeight="Bold" />
-                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100">
+
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="100">
+
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding CheckBoxName}" FontWeight="Bold" Visibility="{Binding Visibility}">
+                                   
+                                </TextBlock>
+                                <TextBlock Grid.Column="1" Text="{Binding Counts, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Visibility="{Binding Visibility}" />
+
+                            </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -90,8 +129,30 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Date}" FontWeight="UltraLight" Background="Aqua"/>
-                                <TextBlock Text="{Binding Description}"/>
+                                <TextBlock Text="{Binding Date}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Description}" Name="tt">
+                                    <TextBlock.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="Red" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </TextBlock.Background>
+                                    <!--<TextBlock.Triggers>
+                                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard Storyboard.TargetName="tt" 
+                                                                Storyboard.TargetProperty="Foreground">
+                                                        <ColorAnimation From="Red"
+                                                                        To="Blue"
+                                                                        By="Beige" 
+                                                                        Duration="0:0:5" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </TextBlock.Triggers>-->
+                                </TextBlock>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
