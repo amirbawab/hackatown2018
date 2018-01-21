@@ -29,7 +29,7 @@ namespace MapInteractionSample
         #region Properties
 
         public DateTime Date { get; set; }
-
+        public int Count { get; set; }
         public string Description { get; set; }
 
         public override bool IsClusterable => false;
@@ -40,11 +40,12 @@ namespace MapInteractionSample
 
         #region Constructors
 
-        public FireMapObject(double latitude, double longitude)
+        public FireMapObject(double latitude, double longitude, int count)
                     : base(FireMapObjectId)
         {
             Latitude = latitude;
             Longitude = longitude;
+            Count = count;
         }
 
         #endregion

@@ -106,7 +106,7 @@ namespace MapInteractionSample
         private void OnThreadStart()
         {
             Random random = new Random();
-
+            int count = 0;
             while (true)
             {
                 if (m_isMapGeoreferenced && m_mapId != Guid.Empty)
@@ -114,7 +114,7 @@ namespace MapInteractionSample
                     var lat = Convert.ToDouble("45." + random.Next(405052, 682052));
                     var lon = Convert.ToDouble("-73." + random.Next(486714, 981099));
 
-                    var fire = new FireMapObject(lat, lon)
+                    var fire = new FireMapObject(lat, lon, ++count)
                     {
                         Description = "Fire!",
                         Date = DateTime.Now
@@ -123,6 +123,7 @@ namespace MapInteractionSample
                     Dispatcher.BeginInvoke(new Action(() =>
                     {
                         m_fires.Add(fire);
+                        ++StaticClass.CountStatic;
                     }));
                 }
 

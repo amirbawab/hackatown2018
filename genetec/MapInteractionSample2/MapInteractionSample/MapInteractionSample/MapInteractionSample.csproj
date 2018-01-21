@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="ModuleMapIteractionSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="FireMapObjectView.xaml">

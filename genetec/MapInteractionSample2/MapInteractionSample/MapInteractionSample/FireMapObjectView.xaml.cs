@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 // ==========================================================================
 // Copyright (C) 2017 by Genetec, Inc.
@@ -18,6 +19,7 @@ namespace MapInteractionSample
 
         public static readonly DependencyProperty IsFireSelectedProperty = DependencyProperty.Register(
                     "IsFireSelected", typeof(bool), typeof(FireMapObjectView), new PropertyMetadata(default(bool)));
+        
 
         #endregion
 
@@ -28,7 +30,6 @@ namespace MapInteractionSample
             get { return (bool)GetValue(IsFireSelectedProperty); }
             set { SetValue(IsFireSelectedProperty, value); }
         }
-
         #endregion
 
         #region Constructors
@@ -36,6 +37,9 @@ namespace MapInteractionSample
         public FireMapObjectView()
         {
             InitializeComponent();
+            mePlayer.Source =  new Uri("http://6oo.org/video/flag.png?tmp=" + StaticClass.CountStatic.ToString());
+            //mePlayer.Source = new Uri("http://6oo.org/video/flag.png." + StaticClass.CountStatic.ToString());
+            mePlayer.Play();
         }
 
         #endregion
