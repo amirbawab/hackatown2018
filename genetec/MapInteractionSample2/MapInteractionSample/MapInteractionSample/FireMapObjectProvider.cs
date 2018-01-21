@@ -8,6 +8,9 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Text;
 using System.Threading;
+using Stream = System.IO.Stream;
+using System.Net;
+using System.Windows;
 
 // ==========================================================================
 // Copyright (C) 2017 by Genetec, Inc.
@@ -108,7 +111,7 @@ namespace MapInteractionSample
         private void OnThreadStart()
         {
             Random random = new Random();
-            int count = 0;
+     
             while (true)
             {
                 if (m_isMapGeoreferenced && m_mapId != Guid.Empty)
@@ -116,7 +119,7 @@ namespace MapInteractionSample
                     var lat = Convert.ToDouble("45." + random.Next(405052, 682052));
                     var lon = Convert.ToDouble("-73." + random.Next(486714, 981099));
 
-                    var fire = new FireMapObject(lat, lon, ++count)
+                    var fire = new FireMapObject(lat, lon)
                     {
                         Description = "Fire!",
                         Date = DateTime.Now
@@ -128,37 +131,21 @@ namespace MapInteractionSample
                         ++StaticClass.CountStatic;
 
 
+                        
 
-                        HttpWebRequest request = (HttpWebRequest)
-                            WebRequest.Create("myurl");
 
-                        // execute the request
-                        HttpWebResponse response = (HttpWebResponse)
-                            request.GetResponse();
-                        // we will read data via the response stream
-                        Stream resStream = response.GetResponseStream();
-                        string tempString = null;
-                        int count = 0;
-
-                        do
+                        string somestring;
+                        try
                         {
-                            // fill the buffer with data
-                            count = resStream.Read(buf, 0, buf.Length);
-
-                            // make sure we read some data
-                            if (count != 0)
-                            {
-                                // translate from bytes to ASCII text
-                                tempString = Encoding.ASCII.GetString(buf, 0, count);
-
-                                // continue building the string
-                                sb.Append(tempString);
-                            }
+                            WebClient wc = new WebClient();
+                            somestring = wc.DownloadString("http://6oo.org/video/text.txt");
+                            StaticClass.CurrentString = somestring;
                         }
-                        while (count > 0); // any more data to read?
-
-                        // print out page source
-                        Console.WriteLine(sb.ToString());
+                        catch (WebException we)
+                        {
+                            // add some kind of error processing
+                            MessageBox.Show(we.ToString());
+                        }
 
                     }));
                 }

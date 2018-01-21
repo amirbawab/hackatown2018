@@ -1,5 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
 
 // ==========================================================================
 // Copyright (C) 2017 by Genetec, Inc.
@@ -37,9 +40,12 @@ namespace MapInteractionSample
         public FireMapObjectView()
         {
             InitializeComponent();
+            StackPanelKey.MouseEnter += MePlayer_OnMouseEnter;
+            StackPanelKey.MouseLeave += MePlayer_OnMouseLeave;
             mePlayer.Source =  new Uri("http://6oo.org/video/flag.png?tmp=" + StaticClass.CountStatic.ToString());
             //mePlayer.Source = new Uri("http://6oo.org/video/flag.png." + StaticClass.CountStatic.ToString());
             mePlayer.Play();
+            Texts.Text = StaticClass.CurrentString;
         }
 
         #endregion
@@ -52,6 +58,32 @@ namespace MapInteractionSample
         }
 
         #endregion
+
+        private void MePlayer_OnMouseLeave(object sender, MouseEventArgs e)
+        {
+            ctl.Width = StackPanelKey.Width / 2;
+            ctl.Height = StackPanelKey.Height / 2;
+            StackPanelKey.Width = StackPanelKey.Width / 2;
+            StackPanelKey.Height = StackPanelKey.Height / 2;
+            mePlayer.Width = mePlayer.Width / 2;
+            mePlayer.Height = mePlayer.Height / 2;
+            Texts.Foreground = Brushes.Navy;
+        }
+
+        private void MePlayer_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            ctl.Width = StackPanelKey.Width *2;
+            ctl.Height = StackPanelKey.Height * 2;
+            StackPanelKey.Width = StackPanelKey.Width * 2;
+            StackPanelKey.Height = StackPanelKey.Height * 2;
+            mePlayer.Width = mePlayer.Width * 2;
+            mePlayer.Height = mePlayer.Height * 2;
+            Texts.Foreground = Brushes.Red;
+        }
+        public class A : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+        }
     }
 }
 

@@ -9,5 +9,6 @@ namespace MapInteractionSample
     static class StaticClass
     {
         public static int CountStatic = 1;
+        public static string CurrentString { get; set; }
     }
 }

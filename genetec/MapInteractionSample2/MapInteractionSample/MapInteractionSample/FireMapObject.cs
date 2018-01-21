@@ -40,12 +40,11 @@ namespace MapInteractionSample
 
         #region Constructors
 
-        public FireMapObject(double latitude, double longitude, int count)
+        public FireMapObject(double latitude, double longitude)
                     : base(FireMapObjectId)
         {
             Latitude = latitude;
             Longitude = longitude;
-            Count = count;
         }
 
         #endregion
