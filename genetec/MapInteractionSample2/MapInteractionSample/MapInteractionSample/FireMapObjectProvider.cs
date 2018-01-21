@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -57,9 +58,9 @@ namespace MapInteractionSample
             thread.Start();
             m_filters = new ObservableCollection<Filters>()
             {
-                new Filters("Cat"),
-                new Filters("Dog"),
-                new Filters("T-Shirt")
+                new Filters("cow"),
+                new Filters("dog"),
+                new Filters("human")
             };
             m_fires.CollectionChanged += OnFiresCollectionChanged;
         }
@@ -139,7 +140,35 @@ namespace MapInteractionSample
                         {
                             WebClient wc = new WebClient();
                             somestring = wc.DownloadString("http://6oo.org/video/text.txt");
-                            StaticClass.CurrentString = somestring;
+                            if (somestring != null && somestring.Length > 0)
+                            {
+                                String[] test = somestring.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
+                                StaticClass.CurrentString = somestring;
+                                for (int i = 0; i < test.Length; ++i)
+                                {
+                                    Filters toto = null;
+                                    if (i % 2 == 0)
+                                    {
+                                        toto = m_filters.FirstOrDefault(f => f.CheckBoxName == test[i]);
+                                        ++i;
+                                        if (toto != null)
+                                        {
+                                            int tempInt = 0;
+                                            bool testParse = Int32.TryParse(test[i].ToString(), out tempInt);
+                                            if (testParse)
+                                            {
+                                                toto.Counts += tempInt;
+                                                //MessageBox.Show(test[i] + " " + tempInt + " " + test + toto.Counts);
+                                            }
+                                            
+                                        }
+                                        continue;
+                                    }
+                                    
+                                    
+                                }
+                                
+                            }
                         }
                         catch (WebException we)
                         {

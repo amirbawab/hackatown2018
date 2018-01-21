@@ -100,7 +100,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Date}" FontWeight="UltraLight" Background="Aqua"/>
+                                        <TextBlock Text="{Binding Date}"/>
                                         <TextBlock Text="{Binding Description}"/>
                                     </StackPanel>
                                 </DataTemplate>
