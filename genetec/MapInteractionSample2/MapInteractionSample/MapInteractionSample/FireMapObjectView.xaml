@@ -6,32 +6,15 @@
                      Margin="-24,-24,0,0"
                     x:Name="ctl">
 
-  <maps:MapObjectView.Resources>
-    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-  </maps:MapObjectView.Resources>
-
-  <Grid>
-
-    <Ellipse Margin="-500" 
-             Stroke="#F1C50A" 
-             StrokeThickness="0.3" 
-             Height="10" 
-             Width="10"
-             IsHitTestVisible="False"
-             Visibility="{Binding ElementName=ctl, Path=IsFireSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
-      <Ellipse.LayoutTransform>
-        <ScaleTransform ScaleX="10" 
-                        ScaleY="10" />
-      </Ellipse.LayoutTransform>
-      <Ellipse.Fill>
-        <RadialGradientBrush RadiusX="0.5" RadiusY="0.5">
-          <GradientStop Color="#80F1C50A"/>
-          <GradientStop Color="#00F1C50A" Offset="1"/>
-        </RadialGradientBrush>
-      </Ellipse.Fill>
-    </Ellipse>
-
-    <Image Source="Resources/FireIcon.png" MouseLeftButtonDown="OnFireImageMouseLeftButtonDown"/>
-
-  </Grid>
+    <maps:MapObjectView.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </maps:MapObjectView.Resources>
+    <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+        <MediaElement Source="http://ott.pakwatantv.com:5000/live/geonews0011/playlist.m3u8" LoadedBehavior="Play" Name="mePlayer" />
+    </Grid>
+ 
 </maps:MapObjectView>

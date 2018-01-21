@@ -256,3 +256,4 @@ C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapI
 C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\MapInteractionSample\obj\Debug\MapInteractionSample.csproj.CoreCompileInputs.cache
 C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\MapInteractionSample\obj\Debug\MapInteractionSample.dll
 C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\MapInteractionSample\obj\Debug\MapInteractionSample.pdb
+C:\Users\slam\Desktop\hackatown\hackatown2018\genetec\MapInteractionSample2\MapInteractionSample\MapInteractionSample\obj\Debug\MapInteractionSample.csprojResolveAssemblyReference.cache
