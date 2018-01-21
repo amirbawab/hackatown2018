@@ -106,7 +106,7 @@ def load_image_into_numpy_array(image):
 # image2.jpg
 # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
 PATH_TO_TEST_IMAGES_DIR = '../../models/research/object_detection/test_images/'
-TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
+TEST_IMAGE_PATHS = [ os.path.join('img/img{}.jpg').format(i) for i in range(0,40) ]
 
 # Size, in inches, of the output images.
 IMAGE_SIZE = (12, 8)
@@ -135,6 +135,7 @@ with detection_graph.as_default():
           feed_dict={image_tensor: image_np_expanded})
       
       # Extract data
+      print category_index
       total_items = len(classes[0])
       for index in range(0, total_items):
           if scores[0][index] >= 0.6:
@@ -152,5 +153,5 @@ with detection_graph.as_default():
 
       plt.figure(figsize=IMAGE_SIZE)
       print "Saving image"
-      plt.imsave('image.jpg', image_np)
+      plt.imsave(image_path + '.tf.jpg', image_np)
       #plt.imshow(image_np)
